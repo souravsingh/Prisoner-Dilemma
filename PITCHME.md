@@ -1,4 +1,4 @@
-#### Game Theory and Iterated Prisoner's Dilemma in Python
+#### Game Theory and Iterated Prisoner's Dilemma
 [@MrSouravSingh](https://twitter.com/MrSouravSingh)
 
 ---
