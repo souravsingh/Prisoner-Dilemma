@@ -15,15 +15,6 @@ Study Conflicts and Cooperation between various entities though Mathematical Mod
 
 ---
 
-#### Let's Play!!
-
-Let's play a small game to understand a bit on Game Theory- Guess 2/3rd of average.
-
-The aim of the game is to guess the 2/3rd of the average of your guesses.
-
-Numbers are restricted between 0 to 100, both inclusive.
-
----
 
 #### Prisoner's Dilemma
 
@@ -34,7 +25,7 @@ Numbers are restricted between 0 to 100, both inclusive.
 
 #### Scenario
 
-- Two members of a criminal organization A and B are captured and put in incarceration. Both the members are isolated and  cannot communicate with each other.
+- Two members of a criminal organization A and B are captured and put in incarceration. Both the members are isolated and cannot communicate with each other.
 - The Prosecutor doesn't have enough evidence for prosecution and decides to give each person a bargain- betray your friend or cooperate with your friend by going silent.
 
 ---
@@ -58,51 +49,17 @@ Taken from [https://xkcd.com/1016/](https://xkcd.com/1016/)
 #### Iterated Prisoner's Dilemma
 
 1. Started out by Robert Axelrod as a student in 1962.
-2. [Axelrod1980](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.665.7955&rep=rep1&type=pdf): 15 strategies
-3. [Axelrod1980b](http://journals.sagepub.com/doi/abs/10.1177/002200278002400301): 65 strategies
+2. Prisoner's Dilemma is run a bunch of times between a bunch of strategies which follow specific rules.
+3. At the end, Points are tallied for each cooperation and defection done.
+3. [Axelrod1980](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.665.7955&rep=rep1&type=pdf): 15 strategies
+4. [Axelrod1980b](http://journals.sagepub.com/doi/abs/10.1177/002200278002400301): 65 strategies
 
 ---
+#### What happened in the experiment?
 
-### IPD in Python
-<img src="http://vknight.org/Talks/2017-02-13-The-Axelrod-library/static/axelrod-tweet.png" alt="Drawing" style="height: 480px;"/>
----
-
-### Basic Strategy for IPD
-
-```python
-class TitForTat(Player):
-    """A player starts by cooperating and then mimics previous move by opponent."""
-
-    name = 'Tit For Tat'
-    classifier = {
-        'memory_depth': 1,  # Four-Vector = (1.,0.,1.,0.)
-        'stochastic': False,
-        'inspects_source': False,
-        'manipulates_source': False,
-        'manipulates_state': False
-    }
-
-    @staticmethod
-    def strategy(opponent):
-        return 'D' if opponent.history[-1:] == ['D'] else 'C'
-```
----
-
-#### Demo time!
-
----
-<img src="http://axelrod-tournament.readthedocs.io/en/latest/_images/strategies_std_reproduce.svg" width=800>
----
-
-The Axelrod library
-
-Greet us at [Gitter!!](https://gitter.im/Axelrod-Python/Axelrod)
-
-Docs- [axelrod.readthedocs.io](axelrod.readthedocs.io)
-
----
-
-Thanks to Axelrod-Python community, especially to Dr. Vincent Knight for the help!!
+1. A strategy named Tit-for-Tat won the tournament.
+2. The strategy cooperates for a few initial rounds and then mimics other player's strategy.
+3. This affirmed the fact that the behavior of "do unto others" works well.
 
 ---
 
